@@ -22,13 +22,13 @@
 html,body{margin:0}
 body{background:var(--bg);color:var(--ink);font-family:"Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.55;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
 a{color:inherit}
-.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 32px}
+.wrap{width:100%;padding:0 clamp(32px,6vw,96px)}
 header{padding:32px 0}
 .logo{display:inline-block;line-height:0}
 .logo svg{height:30px;width:auto}
 main{flex:1;display:flex;align-items:center;position:relative;overflow:hidden}
 .ring{position:absolute;right:-180px;top:50%;transform:translateY(-50%);width:640px;height:640px;pointer-events:none}
-.hero{position:relative;padding:48px 0 88px;max-width:640px}
+.hero{position:relative;padding:48px 0 88px;max-width:700px}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
 .eyebrow::before{content:"";width:9px;height:9px;border-radius:50%;border:2.5px solid var(--accent)}
 h1{font-size:clamp(38px,6vw,62px);line-height:1.04;letter-spacing:-.025em;font-weight:700;margin:18px 0 22px}
