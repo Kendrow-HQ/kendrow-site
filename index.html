@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kendrow · Outcome data for agency hiring</title>
+<meta name="description" content="Kendrow shows which recruiting-agency hires are still there at 6 and 12 months, what each lasting hire really cost, and which guarantee refunds you're owed.">
+<meta property="og:title" content="Kendrow · Outcome data for agency hiring">
+<meta property="og:description" content="See which agency hires are still there at 6 and 12 months. Coming soon.">
+<meta property="og:url" content="https://kendrow.com">
+<meta name="theme-color" content="#0E2B4F">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22%230E2B4F%22/%3E%3Cpath%20d%3D%22M19.5%2C50%20A30.5%2C30.5%200%201%201%2080.5%2C50%20A30.5%2C30.5%200%201%201%2019.5%2C50%20Z%20M32.5%2C50%20A17.5%2C17.5%200%201%200%2067.5%2C50%20A17.5%2C17.5%200%201%200%2032.5%2C50%20Z%22%20fill%3D%22%233B8FE0%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --bg:#F4F7FB; --surface:#FFFFFF; --ink:#0E1C2E; --muted:#4D5F76; --line:#D4DEEA;
+  --accent:#1E5A86; --accent-ink:#163F5E; --navy:#0E2B4F; --pop:#3B8FE0;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:"Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.55;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+a{color:inherit}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 32px}
+header{padding:32px 0}
+.logo{display:inline-block;line-height:0}
+.logo svg{height:30px;width:auto}
+main{flex:1;display:flex;align-items:center;position:relative;overflow:hidden}
+.ring{position:absolute;right:-180px;top:50%;transform:translateY(-50%);width:640px;height:640px;pointer-events:none}
+.hero{position:relative;padding:48px 0 88px;max-width:640px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.eyebrow::before{content:"";width:9px;height:9px;border-radius:50%;border:2.5px solid var(--accent)}
+h1{font-size:clamp(38px,6vw,62px);line-height:1.04;letter-spacing:-.025em;font-weight:700;margin:18px 0 22px}
+.lede{font-size:clamp(17px,2vw,20px);color:var(--muted);margin:0 0 34px;max-width:54ch}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:10px;font-weight:600;font-size:16px;text-decoration:none;border:1.5px solid transparent;transition:background .15s,border-color .15s}
+.btn.primary{background:var(--ink);color:#fff}
+.btn.primary:hover{background:var(--navy)}
+.btn.ghost{border-color:var(--line);background:var(--surface);color:var(--ink)}
+.btn.ghost:hover{border-color:var(--accent)}
+.btn:focus-visible{outline:3px solid var(--pop);outline-offset:2px}
+.facts{list-style:none;padding:0;margin:56px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;border-top:1px solid var(--line);padding-top:28px}
+.facts b{display:block;font-size:15px;margin-bottom:4px}
+.facts span{font-size:14px;color:var(--muted);line-height:1.5}
+footer{padding:28px 0 36px;font-size:13px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media (max-width:760px){
+  .wrap{padding:0 16px}
+  header{padding:22px 0}
+  .logo svg{height:24px}
+  .ring{width:360px;height:360px;right:-170px;top:24%}
+  .hero{padding:24px 0 56px}
+  .facts{grid-template-columns:minmax(0,1fr);gap:18px;margin-top:44px}
+  .btn{flex:1 1 100%}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="Kendrow home"><svg viewBox="-1 10 458 90" role="img" aria-label="Kendrow"><path d="M0,10 H14 V100 H0 Z M2.5,81.7 L34.8,40 L52.6,40 L13.5,90.3 Z M29.8,58.1 L58.3,100 L41.3,100 L18.2,65.9 Z M117.6,88.5 A30,30 0 1 1 124,70 L110,70 A16,16 0 1 0 106.6,79.9 Z M71,64 H124 V76 H71 Z M134,40 H148 V100 H134 Z M134,70 A30,30 0 0 1 194,70 L180,70 A16,16 0 0 0 148,70 Z M180,70 H194 V100 H180 Z M202,70 A30.0,30.0 0 1 1 262,70 A30.0,30.0 0 1 1 202,70 Z M216,70 A16.0,16.0 0 1 0 248,70 A16.0,16.0 0 1 0 216,70 Z M248,10 H262 V100 H248 Z M272,40 H286 V100 H272 Z M272,70 A30,30 0 0 1 302,40 L302,54 A16,16 0 0 0 286,70 Z M390.7,40 L406.7,100 L392.3,100 L376.3,40 Z M392.2,100 L409.7,40 L424.3,40 L406.8,100 Z M424.3,40 L441.8,100 L427.2,100 L409.7,40 Z M427.3,100 L443.3,40 L457.7,40 L441.7,100 Z" fill="#0E1C2E"/><path d="M310,70 A30.0,30.0 0 1 1 370,70 A30.0,30.0 0 1 1 310,70 Z M324,70 A16.0,16.0 0 1 0 356,70 A16.0,16.0 0 1 0 324,70 Z" fill="#1E5A86"/></svg></a>
+  </div>
+</header>
+<main>
+  <svg class="ring" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="37" fill="none" stroke="#1E5A86" stroke-opacity=".07" stroke-width="16"/></svg>
+  <div class="wrap">
+    <section class="hero">
+      <span class="eyebrow">Coming soon</span>
+      <h1>Know which agency hires actually last.</h1>
+      <p class="lede">Kendrow tracks whether your recruiting-agency placements are still there at 6 and 12 months, shows what each lasting hire really cost, and flags the guarantee refunds you're owed.</p>
+      <div class="cta">
+        <a class="btn primary" href="mailto:hello@kendrow.com?subject=Founding%20member%20interest">Become a founding member</a>
+        <a class="btn ghost" href="mailto:hello@kendrow.com">Get in touch</a>
+      </div>
+      <ul class="facts">
+        <li><b>Retention by agency</b><span>Who's still there at 6 and 12 months, agency by agency.</span></li>
+        <li><b>Cost per lasting hire</b><span>Fees divided by the hires who stayed, not just hires made.</span></li>
+        <li><b>Guarantee recovery</b><span>Early departures matched to the refunds and replacements in your contracts.</span></li>
+      </ul>
+    </section>
+  </div>
+</main>
+<footer>
+  <div class="wrap"><span>© 2026 Kendrow</span><a href="mailto:hello@kendrow.com">hello@kendrow.com</a></div>
+</footer>
+</body>
+</html>
