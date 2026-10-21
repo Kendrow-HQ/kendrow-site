@@ -9,7 +9,7 @@
 <meta property="og:description" content="Stop overpaying for hires that don't last. Private beta.">
 <meta property="og:url" content="https://kendrow.com">
 <meta name="theme-color" content="#0E2B4F">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22%230E2B4F%22/%3E%3Cpath%20d%3D%22M19.5%2C50%20A30.5%2C30.5%200%201%201%2080.5%2C50%20A30.5%2C30.5%200%201%201%2019.5%2C50%20Z%20M32.5%2C50%20A17.5%2C17.5%200%201%200%2067.5%2C50%20A17.5%2C17.5%200%201%200%2032.5%2C50%20Z%22%20fill%3D%22%233B8FE0%22/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22ki%22%20x1%3D%2222%22%20y1%3D%2222%22%20x2%3D%2278%22%20y2%3D%2278%22%20gradientUnits%3D%22userSpaceOnUse%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23FFFFFF%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%236FB2F0%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22%230E2B4F%22%2F%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2221.90%22%20fill%3D%22none%22%20stroke%3D%22url%28%23ki%29%22%20stroke-width%3D%2212.21%22%2F%3E%3C%2Fsvg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -29,7 +29,7 @@ a{color:inherit}
 header{position:sticky;top:0;z-index:10;background:var(--surface);border-bottom:1px solid var(--line)}
 header .wrap{display:flex;align-items:center;min-height:66px;max-width:none;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
 .logo{display:inline-flex;align-items:center;line-height:0;text-decoration:none}
-.logo svg{height:26px;width:auto}
+.logo svg{height:24px;width:auto}
 main{flex:1;display:flex;align-items:center;position:relative;overflow:hidden;background:var(--band);color:var(--band-ink)}
 .ring{position:absolute;right:-180px;top:50%;transform:translateY(-50%);width:640px;height:640px;pointer-events:none}
 .ring circle{stroke:#8CC6F5;stroke-opacity:.06}
@@ -50,7 +50,7 @@ footer a{color:var(--muted);text-decoration:none}
 footer a:hover{color:var(--ink)}
 @media (max-width:760px){
   header .wrap{padding-left:16px;padding-right:16px;min-height:60px}
-  .logo svg{height:24px}
+  .logo svg{height:21px}
   .ring{width:360px;height:360px;right:-170px;top:24%}
   .hero{padding:40px 0 56px}
   .btn{flex:1 1 100%}
@@ -60,7 +60,7 @@ footer a:hover{color:var(--ink)}
 <body>
 <header>
   <div class="wrap">
-    <a class="logo" href="/" aria-label="Kendrow home"><svg viewBox="-1 10 458 90" role="img" aria-label="Kendrow"><path d="M0,10 H14 V100 H0 Z M2.5,81.7 L34.8,40 L52.6,40 L13.5,90.3 Z M29.8,58.1 L58.3,100 L41.3,100 L18.2,65.9 Z M117.6,88.5 A30,30 0 1 1 124,70 L110,70 A16,16 0 1 0 106.6,79.9 Z M71,64 H124 V76 H71 Z M134,40 H148 V100 H134 Z M134,70 A30,30 0 0 1 194,70 L180,70 A16,16 0 0 0 148,70 Z M180,70 H194 V100 H180 Z M202,70 A30.0,30.0 0 1 1 262,70 A30.0,30.0 0 1 1 202,70 Z M216,70 A16.0,16.0 0 1 0 248,70 A16.0,16.0 0 1 0 216,70 Z M248,10 H262 V100 H248 Z M272,40 H286 V100 H272 Z M272,70 A30,30 0 0 1 302,40 L302,54 A16,16 0 0 0 286,70 Z M390.7,40 L406.7,100 L392.3,100 L376.3,40 Z M392.2,100 L409.7,40 L424.3,40 L406.8,100 Z M424.3,40 L441.8,100 L427.2,100 L409.7,40 Z M427.3,100 L443.3,40 L457.7,40 L441.7,100 Z" fill="#0E1C2E"/><path d="M310,70 A30.0,30.0 0 1 1 370,70 A30.0,30.0 0 1 1 310,70 Z M324,70 A16.0,16.0 0 1 0 356,70 A16.0,16.0 0 1 0 324,70 Z" fill="#1E5A86"/></svg></a>
+    <a class="logo" href="/" aria-label="Kendrow home"><svg  viewBox="76 -730 4296 749" role="img" aria-label="Kendrow"><defs><linearGradient id="kgs" x1="2893.0" y1="-564.5" x2="3476.8" y2="19.2" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#0E1C2E"/><stop offset="1" stop-color="#3B8FE0"/></linearGradient></defs><g transform="scale(1,-1)" fill="#0E1C2E"><path d="M458.75 0.0 281.5 254.625H202.25L429.125 545.25H585.75L374.375 275.75L377.0 349.875L627.25 0.0ZM75.75 0.0V730.0H225.5V0.0Z M915.75 -19.25Q845.75 -19.25 792.875 4.75Q740.0 28.75 704.875 69.1875Q669.75 109.625 651.75 159.875Q633.75 210.125 633.75 263.0V282.25Q633.75 336.75 651.75 387.3125Q669.75 437.875 704.5625 477.6875Q739.375 517.5 791.0625 541.0Q842.75 564.5 909.75 564.5Q998.0 564.5 1057.9375 525.4375Q1117.875 486.375 1148.8125 423.3125Q1179.75 360.25 1179.75 287.0V234.625H697.0V322.875H1087.875L1040.25 280.75Q1040.25 331.5 1025.6875 367.375Q1011.125 403.25 982.3125 422.5Q953.5 441.75 909.75 441.75Q865.875 441.75 835.25 421.6875Q804.625 401.625 788.9375 363.8125Q773.25 326.0 773.25 272.0Q773.25 221.875 788.3125 183.875Q803.375 145.875 834.875 124.6875Q866.375 103.5 915.75 103.5Q963.125 103.5 993.25 122.125Q1023.375 140.75 1032.625 168.375H1170.125Q1158.5 112.75 1123.9375 70.25Q1089.375 27.75 1036.5625 4.25Q983.75 -19.25 915.75 -19.25Z M1255.75 0.0V545.25H1374.25V311.25H1364.75Q1364.75 394.625 1386.5625 450.375Q1408.375 506.125 1452.0625 534.3125Q1495.75 562.5 1559.625 562.5H1566.125Q1662.75 562.5 1713.125 499.8125Q1763.5 437.125 1763.5 311.875V0.0H1613.75V322.5Q1613.75 369.5 1586.5625 398.875Q1559.375 428.25 1512.125 428.25Q1464.125 428.25 1434.8125 398.3125Q1405.5 368.375 1405.5 319.0V0.0Z M2096.25 -18.0Q2038.625 -18.0 1990.9375 3.0Q1943.25 24.0 1908.375 61.6875Q1873.5 99.375 1854.625 150.0Q1835.75 200.625 1835.75 259.875V281.625Q1835.75 340.5 1853.8125 391.4375Q1871.875 442.375 1905.4375 480.6875Q1939.0 519 1986.1875 540.5Q2033.375 562.0 2091.375 562.0Q2156.125 562.0 2204.5625 534.0Q2253.0 506 2280.9375 450.75Q2308.875 395.5 2311.625 313.25L2270.375 356.625V730.0H2420.125V0.0H2301.625V228.875H2324.625Q2321.875 148.5 2291.625 93.25Q2261.375 38.0 2211.125 10.0Q2160.875 -18.0 2096.25 -18.0ZM2131.75 107.25Q2170.75 107.25 2202.9375 124.875Q2235.125 142.5 2254.75 176.1875Q2274.375 209.875 2274.375 256.5V295.0Q2274.375 340.625 2254.25 371.9375Q2234.125 403.25 2201.75 420.0Q2169.375 436.75 2131.375 436.75Q2089.0 436.75 2056.0 415.8125Q2023.0 394.875 2004.25 357.6875Q1985.5 320.5 1985.5 270.75Q1985.5 221.0 2004.4375 184.25Q2023.375 147.5 2056.5625 127.375Q2089.75 107.25 2131.75 107.25Z M2536.75 0.0V545.25H2655.25V312.75H2652.5Q2652.5 429.125 2702.125 490.8125Q2751.75 552.5 2847.25 552.5H2867.75V422.75H2828.75Q2760.625 422.75 2723.5625 386.1875Q2686.5 349.625 2686.5 280.875V0.0Z M3759.25 0.0 3861.0 527.25H4028.5L4145.75 0.0H4028.75L3909.0 524H3973.5L3866.375 0.0ZM3719.625 0.0 3719.0 123.5H3829.375L3830.0 0ZM3655.75 0.0 3508.5 545.25H3654.25L3793.125 0.0ZM4066.875 0.0 4067.5 123.5H4177.875L4177.25 0.0ZM4111.25 0.0 4234.875 545.25H4371.25L4239.625 0.0Z"/></g><circle cx="3184.9" cy="-272.6" r="228.2" fill="none" stroke="url(#kgs)" stroke-width="127.2"/></svg></a>
   </div>
 </header>
 <main>
