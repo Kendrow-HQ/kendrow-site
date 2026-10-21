@@ -12,46 +12,47 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22%230E2B4F%22/%3E%3Cpath%20d%3D%22M19.5%2C50%20A30.5%2C30.5%200%201%201%2080.5%2C50%20A30.5%2C30.5%200%201%201%2019.5%2C50%20Z%20M32.5%2C50%20A17.5%2C17.5%200%201%200%2067.5%2C50%20A17.5%2C17.5%200%201%200%2032.5%2C50%20Z%22%20fill%3D%22%233B8FE0%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 :root{
   --bg:#F4F7FB; --surface:#FFFFFF; --ink:#0E1C2E; --muted:#4D5F76; --line:#D4DEEA;
-  --accent:#1E5A86; --accent-ink:#163F5E; --navy:#0E2B4F; --pop:#3B8FE0;
+  --accent:#1E5A86; --pop:#3B8FE0;
+  --band:#0E2B4F; --band-ink:#F2F7FC; --band-muted:#B6C9DF; --band-line:#2B4D75; --eyebrow:#8CC6F5;
+  --font-ui:"Schibsted Grotesk",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-data:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
 }
 *{box-sizing:border-box}
 html,body{margin:0}
-body{background:var(--bg);color:var(--ink);font-family:"Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.55;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+body{background:var(--surface);color:var(--ink);font-family:var(--font-ui);font-size:14px;line-height:1.5;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;overflow-x:hidden}
 a{color:inherit}
-.wrap{width:100%;padding:0 clamp(24px,3.5vw,56px)}
-header{padding:32px 0}
-.logo{display:inline-block;line-height:0}
-.logo svg{height:30px;width:auto}
-main{flex:1;display:flex;align-items:center;position:relative;overflow:hidden}
+.wrap{width:100%;max-width:1560px;margin:0 auto;padding-left:max(clamp(16px,4.5vw,72px),env(safe-area-inset-left,0px));padding-right:max(clamp(16px,4.5vw,72px),env(safe-area-inset-right,0px))}
+header{position:sticky;top:0;z-index:10;background:var(--surface);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;min-height:66px;max-width:none;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+.logo{display:inline-flex;align-items:center;line-height:0;text-decoration:none}
+.logo svg{height:26px;width:auto}
+main{flex:1;display:flex;align-items:center;position:relative;overflow:hidden;background:var(--band);color:var(--band-ink)}
 .ring{position:absolute;right:-180px;top:50%;transform:translateY(-50%);width:640px;height:640px;pointer-events:none}
-.hero{position:relative;padding:48px 0 88px;max-width:700px}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
-.eyebrow::before{content:"";width:9px;height:9px;border-radius:50%;border:2.5px solid var(--accent)}
-h1{font-size:clamp(38px,6vw,62px);line-height:1.04;letter-spacing:-.025em;font-weight:700;margin:18px 0 22px}
-.lede{font-size:clamp(17px,2vw,20px);color:var(--muted);margin:0 0 34px;max-width:54ch}
-.cta{display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:10px;font-weight:600;font-size:16px;text-decoration:none;border:1.5px solid transparent;transition:background .15s,border-color .15s}
-.btn.primary{background:var(--ink);color:#fff}
-.btn.primary:hover{background:var(--navy)}
-.btn.ghost{border-color:var(--line);background:var(--surface);color:var(--ink)}
-.btn.ghost:hover{border-color:var(--accent)}
-.btn:focus-visible{outline:3px solid var(--pop);outline-offset:2px}
-.facts{list-style:none;padding:0;margin:56px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;border-top:1px solid var(--line);padding-top:28px}
-.facts b{display:block;font-size:15px;margin-bottom:4px}
-.facts span{font-size:14px;color:var(--muted);line-height:1.5}
-footer{padding:28px 0 36px;font-size:13px;color:var(--muted)}
+.ring circle{stroke:#8CC6F5;stroke-opacity:.06}
+.hero{position:relative;padding:56px 0 72px;max-width:720px}
+.eyebrow{font-family:var(--font-data);font-size:12px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--eyebrow)}
+h1{font-size:clamp(36px,5.2vw,60px);line-height:1.04;letter-spacing:-.03em;font-weight:700;margin:16px 0 20px;text-wrap:balance}
+.lede{font-size:18px;line-height:1.6;color:var(--band-muted);margin:0;max-width:58ch}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:12px 22px;border-radius:9px;font-weight:600;font-size:15px;line-height:1.5;text-decoration:none;border:1px solid transparent;transition:filter .15s,background .15s}
+.btn.primary{background:var(--pop);border-color:var(--pop);color:#FFFFFF}
+.btn.primary:hover{filter:brightness(1.07)}
+.btn.ghost{background:transparent;color:var(--band-ink);border-color:var(--band-line)}
+.btn.ghost:hover{background:rgba(255,255,255,.08)}
+.btn:focus-visible{outline:3px solid var(--eyebrow);outline-offset:2px}
+footer{border-top:1px solid var(--line);padding-block:28px 32px;font-size:13px;color:var(--muted);background:var(--surface)}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:var(--muted);text-decoration:none}
+footer a:hover{color:var(--ink)}
 @media (max-width:760px){
-  .wrap{padding:0 16px}
-  header{padding:22px 0}
+  header .wrap{padding-left:16px;padding-right:16px;min-height:60px}
   .logo svg{height:24px}
   .ring{width:360px;height:360px;right:-170px;top:24%}
-  .hero{padding:24px 0 56px}
-  .facts{grid-template-columns:minmax(0,1fr);gap:18px;margin-top:44px}
+  .hero{padding:40px 0 56px}
   .btn{flex:1 1 100%}
 }
 </style>
@@ -63,7 +64,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   </div>
 </header>
 <main>
-  <svg class="ring" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="37" fill="none" stroke="#1E5A86" stroke-opacity=".07" stroke-width="16"/></svg>
+  <svg class="ring" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="37" fill="none" stroke-width="16"/></svg>
   <div class="wrap">
     <section class="hero">
       <span class="eyebrow">Private beta</span>
