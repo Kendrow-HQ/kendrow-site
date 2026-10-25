@@ -39,7 +39,7 @@ main{flex:1;display:flex;align-items:center;position:relative;overflow:hidden;ba
 @keyframes fl{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.82);opacity:.55}}
 @keyframes tw{0%,100%{opacity:1}50%{opacity:.25}}
 @media (prefers-reduced-motion:reduce){.dots .hi,.dots .f{animation:none}}
-@media (max-width:760px){.dots{width:100%;opacity:.35;-webkit-mask-image:linear-gradient(to bottom,transparent 64%,#000);mask-image:linear-gradient(to bottom,transparent 64%,#000)}}
+@media (max-width:760px){.dots{width:100%;opacity:.5;-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.45),rgba(0,0,0,.6) 40%,#000 80%);mask-image:linear-gradient(to bottom,rgba(0,0,0,.45),rgba(0,0,0,.6) 40%,#000 80%)}}
 .hero{position:relative;padding:56px 0 72px;max-width:720px}
 .eyebrow{font-family:var(--font-data);font-size:12px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--eyebrow)}
 h1{font-size:clamp(36px,5.2vw,60px);line-height:1.04;letter-spacing:-.03em;font-weight:700;margin:16px 0 20px;text-wrap:balance}
@@ -51,6 +51,11 @@ h1{font-size:clamp(36px,5.2vw,60px);line-height:1.04;letter-spacing:-.03em;font-
 .btn.ghost{background:transparent;color:var(--band-ink);border-color:var(--band-line)}
 .btn.ghost:hover{background:rgba(255,255,255,.08)}
 .btn:focus-visible{outline:3px solid var(--eyebrow);outline-offset:2px}
+.segs{display:none;flex-direction:column;gap:10px;list-style:none;margin:28px 0 0;padding:0}
+.segs li{display:flex;gap:12px;align-items:flex-start;background:rgba(14,43,79,.55);border:1px solid var(--band-line);border-radius:12px;padding:14px 14px;-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)}
+.seg-ic{flex:none;width:36px;height:36px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;background:rgba(140,198,245,.12);color:var(--eyebrow)}
+.segs b{display:block;font-size:15px;color:var(--band-ink)}
+.segs span:not(.seg-ic){display:block;font-size:14px;line-height:1.45;color:var(--band-muted);margin-top:2px}
 footer{border-top:1px solid var(--line);padding-block:28px 32px;font-size:13px;color:var(--muted);background:var(--surface)}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 footer a{color:var(--muted);text-decoration:none}
@@ -59,7 +64,11 @@ footer a:hover{color:var(--ink)}
   header .wrap{padding-left:16px;padding-right:16px;min-height:60px}
   .logo svg{height:21px}
   .ring{width:360px;height:360px;right:-170px;top:24%}
-  .hero{padding:40px 0 56px}
+  main{align-items:flex-start}
+  .hero{padding:28px 0 40px}
+  h1{margin:12px 0 16px}
+  .cta{margin-top:24px}
+  .segs{display:flex}
   .btn{flex:1 1 100%}
 }
 </style>
@@ -80,6 +89,11 @@ footer a:hover{color:var(--ink)}
       <div class="cta">
         <a class="btn primary" href="mailto:hello@kendrow.com?subject=Kendrow%20Inquiry%20%7C%20Early%20Access">Request early access</a>
       </div>
+      <ul class="segs" aria-label="Who it’s for">
+        <li><span class="seg-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg></span><div><b>Talent leaders</b><span>Pick agencies on evidence and drop the ones that don’t deliver.</span></div></li>
+        <li><span class="seg-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-3.9 3.1-7 7-7 1.6 0 3.1.5 4.3 1.4"/><path d="M15 18.5l2.2 2.2 4.3-4.3"/></svg></span><div><b>Hiring managers</b><span>Hires who stay, not ones you replace next quarter.</span></div></li>
+        <li><span class="seg-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-6"/><path d="M15 8h5v5"/></svg></span><div><b>Finance</b><span>See what each agency costs per hire who stays, and catch the refunds you’re owed.</span></div></li>
+      </ul>
     </section>
   </div>
 </main>
