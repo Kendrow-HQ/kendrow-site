@@ -65,12 +65,13 @@ footer a:hover{color:var(--ink)}
   header .wrap{padding-left:16px;padding-right:16px;min-height:60px}
   .logo svg{height:21px}
   .ring{width:360px;height:360px;right:-170px;top:24%}
-  main{align-items:flex-start}
-  .hero{padding:28px 0 40px}
-  h1{margin:12px 0 16px}
-  .cta{margin-top:24px}
+  main{align-items:stretch}
+  main>.wrap{display:flex}
+  .hero{display:flex;flex-direction:column;flex:1;padding:clamp(44px,9dvh,96px) 0 clamp(28px,5dvh,56px)}
+  h1{margin:14px 0 18px}
+  .cta{margin-top:28px}
   .segs{display:flex}
-  .segs-eb{display:block}
+  .segs-eb{display:block;margin-top:auto;padding-top:40px}
   .btn{flex:1 1 100%}
 }
 </style>
@@ -93,9 +94,9 @@ footer a:hover{color:var(--ink)}
       </div>
       <span class="eyebrow segs-eb">Built for</span>
       <ul class="segs" aria-label="Built for">
-        <li><span class="seg-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg></span><b>Talent leaders</b></li>
-        <li><span class="seg-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-3.9 3.1-7 7-7 1.6 0 3.1.5 4.3 1.4"/><path d="M15 18.5l2.2 2.2 4.3-4.3"/></svg></span><b>Hiring managers</b></li>
+        <li><span class="seg-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg></span><b>Talent</b></li>
         <li><span class="seg-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-6"/><path d="M15 8h5v5"/></svg></span><b>Finance</b></li>
+        <li><span class="seg-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M7 21h10"/><path d="M4 7h16"/><path d="M4 7l-3 7a3.5 3.5 0 0 0 6 0z"/><path d="M20 7l-3 7a3.5 3.5 0 0 0 6 0z"/></svg></span><b>Legal</b></li>
       </ul>
     </section>
   </div>
