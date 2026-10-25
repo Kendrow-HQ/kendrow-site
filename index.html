@@ -51,10 +51,11 @@ h1{font-size:clamp(36px,5.2vw,60px);line-height:1.04;letter-spacing:-.03em;font-
 .btn.ghost{background:transparent;color:var(--band-ink);border-color:var(--band-line)}
 .btn.ghost:hover{background:rgba(255,255,255,.08)}
 .btn:focus-visible{outline:3px solid var(--eyebrow);outline-offset:2px}
-.segs{display:none;flex-direction:column;gap:10px;list-style:none;margin:28px 0 0;padding:0}
-.segs li{display:flex;gap:12px;align-items:flex-start;background:rgba(14,43,79,.55);border:1px solid var(--band-line);border-radius:12px;padding:14px 14px;-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)}
+.segs{display:none;flex-direction:column;gap:10px;list-style:none;margin:10px 0 0;padding:0}
+.segs-eb{display:none;margin-top:32px}
+.segs li{display:flex;gap:12px;align-items:center;background:rgba(14,43,79,.55);border:1px solid var(--band-line);border-radius:12px;padding:14px 14px;-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)}
 .seg-ic{flex:none;width:36px;height:36px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;background:rgba(140,198,245,.12);color:var(--eyebrow)}
-.segs b{display:block;font-size:15px;color:var(--band-ink)}
+.segs b{display:block;font-size:16px;color:var(--band-ink)}
 .segs span:not(.seg-ic){display:block;font-size:14px;line-height:1.45;color:var(--band-muted);margin-top:2px}
 footer{border-top:1px solid var(--line);padding-block:28px 32px;font-size:13px;color:var(--muted);background:var(--surface)}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
@@ -69,6 +70,7 @@ footer a:hover{color:var(--ink)}
   h1{margin:12px 0 16px}
   .cta{margin-top:24px}
   .segs{display:flex}
+  .segs-eb{display:block}
   .btn{flex:1 1 100%}
 }
 </style>
@@ -89,10 +91,11 @@ footer a:hover{color:var(--ink)}
       <div class="cta">
         <a class="btn primary" href="mailto:hello@kendrow.com?subject=Kendrow%20Inquiry%20%7C%20Early%20Access">Request early access</a>
       </div>
-      <ul class="segs" aria-label="Who it’s for">
-        <li><span class="seg-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg></span><div><b>Talent leaders</b><span>Pick agencies on evidence and drop the ones that don’t deliver.</span></div></li>
-        <li><span class="seg-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-3.9 3.1-7 7-7 1.6 0 3.1.5 4.3 1.4"/><path d="M15 18.5l2.2 2.2 4.3-4.3"/></svg></span><div><b>Hiring managers</b><span>Hires who stay, not ones you replace next quarter.</span></div></li>
-        <li><span class="seg-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-6"/><path d="M15 8h5v5"/></svg></span><div><b>Finance</b><span>See what each agency costs per hire who stays, and catch the refunds you’re owed.</span></div></li>
+      <span class="eyebrow segs-eb">Built for</span>
+      <ul class="segs" aria-label="Built for">
+        <li><span class="seg-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg></span><b>Talent leaders</b></li>
+        <li><span class="seg-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-3.9 3.1-7 7-7 1.6 0 3.1.5 4.3 1.4"/><path d="M15 18.5l2.2 2.2 4.3-4.3"/></svg></span><b>Hiring managers</b></li>
+        <li><span class="seg-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-6"/><path d="M15 8h5v5"/></svg></span><b>Finance</b></li>
       </ul>
     </section>
   </div>
