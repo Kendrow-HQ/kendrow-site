@@ -17,11 +17,11 @@
 <style>
 :root{
   --bg:#F5F8FC; --ink:#0A1628; --muted:#46566C; --faint:#74839A; --line:#DAE2EC; --line2:#C5D0DE;
-  --accent:#2463D4; --good:#0F7A55; --wm-a:#0A1628; --wm-b:#3B8FE0;
+  --accent:#2463D4; --good:#0F7A55; --bad:#B23A2A; --field:#FFFFFF; --wm-a:#0A1628; --wm-b:#3B8FE0;
   --sans:"Schibsted Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 @media (prefers-color-scheme: dark){
-  :root{ --bg:#060C17; --ink:#E9EEF6; --muted:#A6B4C8; --faint:#73849C; --line:#1D2A40; --line2:#2A3B57; --accent:#86B2FF; --good:#5FD9A8; --wm-a:#E9EEF6; --wm-b:#6FB2F2; }
+  :root{ --bg:#060C17; --ink:#E9EEF6; --muted:#A6B4C8; --faint:#73849C; --line:#1D2A40; --line2:#2A3B57; --accent:#86B2FF; --good:#5FD9A8; --bad:#F08A7B; --field:#0E1828; --wm-a:#E9EEF6; --wm-b:#6FB2F2; }
 }
 *,*::before,*::after{box-sizing:border-box}
 html,body{height:100%}
@@ -47,12 +47,21 @@ h1 .q{color:var(--accent)}
 .facts{list-style:none;margin:2px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 24px;font-size:14.5px;color:var(--muted)}
 .facts li{display:flex;align-items:center;gap:9px}
 .facts li::before{content:"";width:9px;height:9px;border-radius:50%;border:2.5px solid var(--accent);flex:none}
-.acts{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;margin-top:6px}
-.btn{display:inline-flex;align-items:center;height:46px;padding:0 22px;border-radius:999px;background:var(--ink);color:var(--bg);font-weight:600;font-size:15.5px;text-decoration:none;transition:transform .15s,opacity .15s}
-.btn:hover{opacity:.88}
-.btn:active{transform:scale(.98)}
-.btn:focus-visible,footer a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-.acts span{font-size:14px;color:var(--faint)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.join{display:grid;gap:8px;width:100%;max-width:460px;margin-top:6px}
+.signup{display:flex;align-items:center;gap:6px;padding:5px;border:1px solid var(--line2);border-radius:999px;background:var(--field);box-shadow:0 1px 2px rgba(10,22,40,.04),0 14px 34px -22px rgba(10,22,40,.3);transition:border-color .15s,box-shadow .15s}
+.signup:focus-within{border-color:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 18%,transparent)}
+.signup.err{border-color:var(--bad)}
+.signup input{flex:1;min-width:0;height:42px;border:0;background:none;padding:0 6px 0 16px;font:inherit;font-size:16px;color:var(--ink);outline:none}
+.signup input::placeholder{color:var(--faint)}
+.signup button{flex:none;height:42px;padding:0 20px;border:0;border-radius:999px;background:var(--ink);color:var(--bg);font:inherit;font-weight:600;font-size:15px;cursor:pointer;white-space:nowrap;transition:opacity .15s,transform .15s}
+.signup button:hover{opacity:.88}
+.signup button:active{transform:scale(.98)}
+.signup button:focus-visible,footer a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.form-msg{margin:0;min-height:20px;padding-left:18px;font-size:13.5px;color:var(--muted)}
+.form-msg.err{color:var(--bad)}
+.form-msg a{color:inherit}
+@media (max-width:440px){ .signup{flex-direction:column;align-items:stretch;border-radius:22px;padding:6px} .signup input{padding:0 12px} }
 footer{position:relative;border-top:1px solid var(--line);font-size:13.5px;color:var(--faint)}
 .ftr{display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;padding-block:22px}
 footer a{color:var(--muted);text-decoration:none}
@@ -80,9 +89,13 @@ footer a:hover{color:var(--ink)}
           <li>Vouched for by colleagues</li>
           <li>Contact only on your terms</li>
         </ul>
-        <div class="acts rise d4">
-          <a class="btn" href="mailto:support@kendrow.com?subject=Tell%20me%20when%20Kendrow%20opens">Tell me when it opens</a>
-          <span>Or write to support@kendrow.com</span>
+        <div class="join rise d4">
+          <form class="signup" id="signup" novalidate>
+            <label class="sr" for="email">Your email</label>
+            <input id="email" name="email" type="email" placeholder="Your email" autocomplete="email" required>
+            <button type="submit">Tell me when it opens</button>
+          </form>
+          <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
         </div>
       </div>
     </div>
@@ -90,9 +103,27 @@ footer a:hover{color:var(--ink)}
   <footer>
     <div class="wrap ftr">
       <span>© 2026 Kendrow LLC</span>
-      <a href="mailto:support@kendrow.com">support@kendrow.com</a>
+      <a href="mailto:hello@kendrow.com">hello@kendrow.com</a>
     </div>
   </footer>
 </div>
+<script>
+(function(){
+  // No sign-up service is connected yet, so the form opens a pre-filled email to hello@kendrow.com.
+  var form = document.getElementById('signup'), input = document.getElementById('email'), msg = document.getElementById('formMsg');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var v = input.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){
+      form.classList.add('err'); msg.className = 'form-msg err'; msg.textContent = 'Enter a valid email address.'; input.focus(); return;
+    }
+    form.classList.remove('err'); msg.className = 'form-msg';
+    var subject = 'Tell me when Kendrow opens', body = 'Please tell me when Kendrow opens.\n\nEmail: ' + v;
+    location.href = 'mailto:hello@kendrow.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    msg.innerHTML = 'Your email app should open with a message ready to send. If it doesn\u2019t, write to <a href="mailto:hello@kendrow.com">hello@kendrow.com</a>.';
+  });
+  input.addEventListener('input', function(){ if (form.classList.contains('err')){ form.classList.remove('err'); msg.className = 'form-msg'; msg.textContent = ''; } });
+})();
+</script>
 </body>
 </html>
