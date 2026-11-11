@@ -28,27 +28,27 @@ html,body{height:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit}
 .page{position:relative;min-height:100vh;min-height:100dvh;display:grid;grid-template-rows:auto 1fr auto;overflow:hidden;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-.wrap{width:100%;max-width:1560px;margin:0 auto;padding-left:max(clamp(20px,4vw,56px),env(safe-area-inset-left,0px));padding-right:max(clamp(20px,4vw,56px),env(safe-area-inset-right,0px))}
+.wrap{width:100%;max-width:1320px;margin:0 auto;padding-left:max(clamp(22px,7.5vw,116px),env(safe-area-inset-left,0px));padding-right:max(clamp(22px,7.5vw,116px),env(safe-area-inset-right,0px))}
 .ring{position:absolute;border-radius:50%;pointer-events:none;background:conic-gradient(from 0deg,var(--wm-b),transparent 38%,transparent 62%,var(--wm-b));-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 30px),#000 calc(100% - 29px));mask:radial-gradient(farthest-side,transparent calc(100% - 30px),#000 calc(100% - 29px));opacity:.22;animation:spin 90s linear infinite}
-.ring-1{width:min(880px,120vw);aspect-ratio:1;right:max(-300px,-40vw);top:50%;margin-top:calc(min(880px,120vw) / -2)}
+.ring-1{width:min(760px,110vw);aspect-ratio:1;right:max(-220px,-36vw);top:50%;margin-top:calc(min(760px,110vw) / -2)}
 .ring-2{width:360px;aspect-ratio:1;left:-190px;bottom:-190px;opacity:.14;animation-duration:70s;animation-direction:reverse}
 @keyframes spin{to{transform:rotate(360deg)}}
-header{position:relative;padding-block:26px}
+header{position:relative;padding-block:22px}
 .wm{height:24px;width:auto;display:block;color:var(--ink)}
-main{position:relative;display:grid;align-content:center;padding-block:clamp(40px,8vh,96px)}
-.copy{display:grid;gap:24px;justify-items:start;max-width:720px}
+main{position:relative;display:grid;align-content:center;padding-block:clamp(20px,4vh,72px)}
+.copy{display:grid;gap:20px;justify-items:start;max-width:700px}
 .soon{display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:500;color:var(--muted);border:1px solid var(--line2);border-radius:999px;padding:6px 14px 6px 12px;background:color-mix(in srgb,var(--bg) 70%,transparent)}
 .soon i{width:8px;height:8px;border-radius:50%;background:var(--good);animation:pulse 2s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--good) 45%,transparent)}70%{box-shadow:0 0 0 8px transparent}100%{box-shadow:0 0 0 0 transparent}}
-h1{margin:0;font-size:clamp(52px,9vw,128px);font-weight:600;letter-spacing:-.055em;line-height:.94}
+h1{margin:0;font-size:clamp(44px,6.6vw,92px);font-weight:600;letter-spacing:-.05em;line-height:.96}
 h1 span{display:block}
 h1 .q{color:var(--accent)}
-.lede{margin:0;font-size:clamp(17px,1.5vw,20px);color:var(--muted);max-width:54ch;line-height:1.5}
-.facts{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px 28px;font-size:15px;color:var(--muted)}
+.lede{margin:0;font-size:clamp(16.5px,1.35vw,18.5px);color:var(--muted);max-width:50ch;line-height:1.5}
+.facts{list-style:none;margin:2px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 24px;font-size:14.5px;color:var(--muted)}
 .facts li{display:flex;align-items:center;gap:9px}
 .facts li::before{content:"";width:9px;height:9px;border-radius:50%;border:2.5px solid var(--accent);flex:none}
 .acts{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;margin-top:6px}
-.btn{display:inline-flex;align-items:center;height:50px;padding:0 24px;border-radius:999px;background:var(--ink);color:var(--bg);font-weight:600;font-size:15.5px;text-decoration:none;transition:transform .15s,opacity .15s}
+.btn{display:inline-flex;align-items:center;height:46px;padding:0 22px;border-radius:999px;background:var(--ink);color:var(--bg);font-weight:600;font-size:15.5px;text-decoration:none;transition:transform .15s,opacity .15s}
 .btn:hover{opacity:.88}
 .btn:active{transform:scale(.98)}
 .btn:focus-visible,footer a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
