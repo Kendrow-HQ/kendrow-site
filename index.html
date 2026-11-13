@@ -171,15 +171,6 @@ function weaveInit(root) {
     labs.forEach((el, k) => { const u = .46, th = ARMS[k].a + SWEEP * u, r = R + (RO - R) * Math.pow(1 - u, 1.85) + (band + (wout - band) * Math.pow(1 - u, 1.15)) * .5 + 22; const hw = el.offsetWidth / 2 + 6, lo = Math.max(0, 12 - r0.left) + hw, hi = Math.min(W, document.documentElement.clientWidth - 12 - r0.left) - hw; el.style.left = Math.max(lo, Math.min(hi, cx + r * Math.cos(th))) + 'px'; el.style.top = Math.max(loY, Math.min(hiY, cy + r * Math.sin(th))) + 'px'; });
   }
 
-  const toks = [], pairs = []; let spawnAt = 0, matchAt = 2.4, sq = 0; const ORDER = [1, 0, 1, 2, 1, 0];
-  function spawn(t, u0) { const k = ORDER[sq++ % ORDER.length], mid = strands.filter(s => s.k === k)[6 + Math.floor(rnd() * 14)]; toks.push({ k, st: mid, v: u0 == null ? .16 : u0, sp: .105 + rnd() * .02, born: t, al: 0 }); }
-  function drawTok(x, y, k, al, sc) {
-    sc *= Math.max(.78, Math.min(1.15, M / 600)); ctx.save(); ctx.globalAlpha = al; ctx.translate(x, y); ctx.scale(sc, sc); ctx.shadowColor = 'rgba(24,20,12,.28)'; ctx.shadowBlur = 8; ctx.shadowOffsetY = 2; ctx.fillStyle = '#fff'; ctx.strokeStyle = '#0A1628'; ctx.lineWidth = 1.5; ctx.beginPath();
-    if (k === 1) ctx.roundRect(-6, -6, 12, 12, 3.2); else ctx.arc(0, 0, 6.2, 0, TAU);
-    ctx.fill(); ctx.shadowColor = 'transparent'; ctx.stroke();
-    if (k === 2) { ctx.strokeStyle = '#B8893E'; ctx.lineWidth = 1.4; ctx.beginPath(); ctx.arc(0, 0, 10, 0, TAU); ctx.stroke(); }
-    ctx.restore();
-  }
   function frame(now) {
     raf = 0; if (!on) return; const t = (now - t0) / 1000, dt = Math.min(.05, t - last); last = t;
     px += (tx - px) * .06; py += (ty - py) * .06;
@@ -200,28 +191,11 @@ function weaveInit(root) {
       ctx.globalAlpha = .75; ctx.lineWidth = 1.5; ctx.strokeStyle = st.col; ctx.stroke(); }
     ctx.globalAlpha = 1;
 
-    if (!RMO && t > 1.6) {
-      if (t > spawnAt && toks.filter(k => !k.pair).length < 11) { spawn(t); spawnAt = t + 1.25; }
-      toks.forEach(k => { if (k.pair) return; k.v += k.sp * dt * (k.v < 1 ? 1 + (1 - k.v) * .6 : .34); k.al = Math.min(1, k.al + dt * 1.6); if (k.v > 2.6) k.out = true; if (k.out) k.al -= dt * 3; });
-      for (let i = toks.length - 1; i >= 0; i--) if (toks[i].out && toks[i].al <= 0) toks.splice(i, 1);
-      if (t > matchAt) { let best = null; const inR = toks.filter(k => !k.pair && !k.out && k.v > 1.08 && k.v < 2.4), ang = k => (ARMS[k.k].a + SWEEP + (k.v - 1) * TAU) % TAU;
-        inR.forEach(a => { if (a.k === 1) return; inR.forEach(b => { if (b.k !== 1) return; let d = Math.abs(ang(a) - ang(b)) % TAU; d = Math.min(d, TAU - d); if (!best || d < best.d) best = { a, b, d }; }); });
-        if (best) { const pa = along(best.a.st, Math.min(2, best.a.v), t), pb = along(best.b.st, Math.min(2, best.b.v), t), mx = (pa[0] + pb[0]) / 2 - cx, my = (pa[1] + pb[1]) / 2 - cy, th = Math.atan2(my, mx), rm = R * .56, tn = [-Math.sin(th), Math.cos(th)], side = (pa[0] - cx) * tn[0] + (pa[1] - cy) * tn[1] > (pb[0] - cx) * tn[0] + (pb[1] - cy) * tn[1] ? 1 : -1;
-          best.a.pair = best.b.pair = true; pairs.push({ a: best.a, b: best.b, pa, pb, th, at: t, ta: [cx + rm * Math.cos(th) + tn[0] * 13 * side, cy + rm * Math.sin(th) + tn[1] * 13 * side], tb: [cx + rm * Math.cos(th) - tn[0] * 13 * side, cy + rm * Math.sin(th) - tn[1] * 13 * side] }); matchAt = t + 3.3; } else matchAt = t + .5; }
-      toks.forEach(k => { if (k.pair) return; const p = along(k.st, Math.min(2, k.v > 2 ? k.v - 1 : k.v), t); drawTok(p[0], p[1], k.k, Math.max(0, k.al), 1); });
-      for (let i = pairs.length - 1; i >= 0; i--) { const p = pairs[i], e = t - p.at, mv = ss(0, .9, e), held = ss(.8, 1.15, e), fade = ss(2.7, 3.3, e), inw = fade * R * .3, ox = -Math.cos(p.th) * inw, oy = -Math.sin(p.th) * inw;
-        const ax = p.pa[0] + (p.ta[0] - p.pa[0]) * mv + ox, ay = p.pa[1] + (p.ta[1] - p.pa[1]) * mv + oy, bx = p.pb[0] + (p.tb[0] - p.pb[0]) * mv + ox, by = p.pb[1] + (p.tb[1] - p.pb[1]) * mv + oy, al = 1 - fade;
-        if (held > 0) { const mxp = (ax + bx) / 2, myp = (ay + by) / 2, pr = ss(.85, 1.9, e); ctx.globalAlpha = (1 - pr) * .5 * al; ctx.strokeStyle = '#B4583A'; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(mxp, myp, 12 + pr * 26, 0, TAU); ctx.stroke();
-          ctx.globalAlpha = held * al; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(ax + (bx - ax) * held, ay + (by - ay) * held); ctx.stroke(); ctx.globalAlpha = 1; }
-        drawTok(ax, ay, p.a.k, al, 1 + held * .12); drawTok(bx, by, 1, al, 1 + held * .12);
-        if (e > 2.9 && !p.pulsed) { p.pulsed = true; hub.classList.remove('beat'); void hub.offsetWidth; hub.classList.add('beat'); }
-        if (e > 3.3) { toks.splice(toks.indexOf(p.a), 1); toks.splice(toks.indexOf(p.b), 1); pairs.splice(i, 1); } }
-    }
     ctx.restore();
     if (!RMO) raf = requestAnimationFrame(frame);
   }
   const start = () => { if (!raf && on) raf = requestAnimationFrame(frame); };
-  size(); for (let i = 0; i < 6; i++) spawn(0, .2 + i * .22);
+  size();
   new ResizeObserver(() => { size(); if (RMO) { on = true; frame(performance.now()); } }).observe(root);
   if ('IntersectionObserver' in window) new IntersectionObserver(es => { on = es.some(e => e.isIntersecting) && !document.hidden; start(); }, { threshold: .05 }).observe(root); else { on = true; start(); }
   document.addEventListener('visibilitychange', () => { on = !document.hidden; start(); });
