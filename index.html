@@ -49,13 +49,15 @@ h1 .q em{display:block;font-family:"Instrument Serif","Iowan Old Style",Georgia,
 .hero-thr .t3{stroke:var(--ink);stroke-width:1.1;opacity:.45;animation-delay:.85s}
 @keyframes thrDraw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
 .lede{font-size:clamp(18px,1.6vw,22px);letter-spacing:-.012em;line-height:1.45;color:var(--muted);margin-top:6px;max-width:60ch}
-.join{display:grid;gap:8px;width:100%;max-width:470px;margin-top:6px}
-.signup{display:flex;align-items:center;gap:6px;padding:6px;border:1px solid var(--line2);border-radius:999px;background:var(--surface);box-shadow:0 1px 2px rgba(24,20,12,.05),0 18px 34px -22px rgba(24,20,12,.35);transition:border-color .15s,box-shadow .15s}
+/* the line and the email field share one width: the field runs to the end of the line */
+.lj{display:grid;gap:26px;width:fit-content;max-width:100%}
+.join{display:grid;gap:8px;width:100%;margin-top:6px}
+.signup{display:flex;align-items:center;gap:6px;padding:5px;border:1px solid var(--line2);border-radius:14px;background:var(--surface);box-shadow:0 1px 2px rgba(24,20,12,.05),0 18px 34px -22px rgba(24,20,12,.35);transition:border-color .15s,box-shadow .15s}
 .signup:focus-within{border-color:var(--accent);box-shadow:0 0 0 4px rgba(180,88,58,.16)}
 .signup.err{border-color:var(--bad)}
-.signup input{flex:1;min-width:0;height:46px;border:0;background:none;padding:0 6px 0 18px;font:inherit;font-size:16px;color:var(--ink);outline:none}
+.signup input{flex:1;min-width:0;height:40px;border:0;background:none;padding:0 6px 0 18px;font:inherit;font-size:16px;color:var(--ink);outline:none}
 .signup input::placeholder{color:var(--faint)}
-.signup button{flex:none;height:46px;padding:0 22px;border:0;border-radius:999px;background:var(--ink);color:var(--bg);font:inherit;font-weight:600;font-size:15.5px;letter-spacing:-.01em;cursor:pointer;white-space:nowrap;transition:opacity .15s,transform .15s}
+.signup button{flex:none;height:40px;padding:0 20px;border:0;border-radius:9px;background:var(--ink);color:var(--bg);font:inherit;font-weight:600;font-size:15.5px;letter-spacing:-.01em;cursor:pointer;white-space:nowrap;transition:opacity .15s,transform .15s}
 .signup button:hover{opacity:.88}
 .signup button:active{transform:scale(.98)}
 .signup button:focus-visible,footer a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
@@ -86,10 +88,10 @@ footer a:hover{color:var(--ink)}
   .join{max-width:none}
   .signup{flex-direction:column;align-items:stretch;gap:10px;padding:0;border:0;background:none;box-shadow:none}
   .signup:focus-within{box-shadow:none}
-  .signup input{flex:none;height:54px;padding:0 20px;border:1px solid var(--line2);border-radius:999px;background:var(--surface);box-shadow:0 1px 2px rgba(24,20,12,.05);transition:border-color .15s,box-shadow .15s}
+  .signup input{flex:none;height:48px;padding:0 18px;border:1px solid var(--line2);border-radius:12px;background:var(--surface);box-shadow:0 1px 2px rgba(24,20,12,.05);transition:border-color .15s,box-shadow .15s}
   .signup input:focus{border-color:var(--accent);box-shadow:0 0 0 4px rgba(180,88,58,.16)}
   .signup.err input{border-color:var(--bad)}
-  .signup button{height:54px;font-size:16px}
+  .signup button{height:48px;font-size:16px;border-radius:12px}
   .form-msg{padding-left:2px}
 }
 @media (prefers-reduced-motion: reduce){ .soon i,.rise,.hero-thr path{animation:none} }
@@ -103,6 +105,7 @@ footer a:hover{color:var(--ink)}
       <div class="hero-copy">
         <p class="soon rise"><i aria-hidden="true"></i>Coming soon</p>
         <h1 class="rise d1"><span>What would</span><span class="q"><em>it take?</em><svg class="hero-thr" viewBox="0 0 400 40" preserveAspectRatio="none" aria-hidden="true"><path class="t1" pathLength="1" d="M2 22 C 70 6, 150 34, 232 18 S 352 8, 398 20"/><path class="t2" pathLength="1" d="M2 27 C 80 14, 156 36, 240 22 S 350 16, 398 14"/><path class="t3" pathLength="1" d="M2 17 C 64 24, 140 8, 226 26 S 356 26, 398 26"/></svg></span></h1>
+        <div class="lj">
         <p class="lede rise d2">Know your worth. Keep it private. Let the right offer find you.</p>
         <div class="join rise d3">
           <form class="signup" id="signup" novalidate>
@@ -111,6 +114,7 @@ footer a:hover{color:var(--ink)}
             <button type="submit">Tell me when it opens</button>
           </form>
           <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
+        </div>
         </div>
       </div>
       <div class="kw rise d3" id="kw" role="img" aria-label="Fine threads drawn into one woven ring.">
